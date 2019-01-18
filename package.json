@@ -1,8 +1,8 @@
 {
-  "name": "deepcopy",
+  "name": "icey-deepcopy",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "/lib/es5/index.js",
   "dependencies": {
     "typescript": "^3.2.4"
   },

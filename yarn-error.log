@@ -1,5 +1,5 @@
 Arguments: 
-  /usr/local/bin/node /usr/local/bin/yarn run test
+  /usr/local/bin/node /usr/local/bin/yarn unlink
 
 PATH: 
   /usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Applications/Wireshark.app/Contents/MacOS
@@ -15,10 +15,10 @@ Platform:
 
 npm manifest: 
   {
-    "name": "deepcopy",
+    "name": "icey-deepcopy",
     "version": "1.0.0",
     "description": "",
-    "main": "index.js",
+    "main": "/lib/es5/index.js",
     "dependencies": {
       "typescript": "^3.2.4"
     },
@@ -28,7 +28,10 @@ npm manifest:
       "ts-jest": "^23.10.5"
     },
     "scripts": {
-      "test": "echo \"Error: no test specified\" && exit 1"
+      "test": "jest --coverage",
+      "compile-es3": "rimraf './lib/es3' && tsc -t 'ES3' -m 'commonjs' --outDir './lib/es3' -d --sourceMap ",
+      "compile-es5": "rimraf './lib/es5' && tsc -t 'ES5' -m 'commonjs' --outDir './lib/es5' -d --sourceMap ",
+      "compile-esm": "rimraf './lib/esm' && tsc -t 'ES6' -m 'esnext' --outDir './lib/esm' -d --sourceMap"
     },
     "jest": {
       "transform": {
@@ -3251,17 +3254,10 @@ Lockfile:
       yargs-parser "^9.0.2"
 
 Trace: 
-  Error: Command failed.
-  Exit code: 1
-  Command: sh
-  Arguments: -c echo "Error: no test specified" && exit 1
-  Directory: /Users/jiaoyy/work/myTest/myutils
-  Output:
-  
-      at ProcessTermError.MessageError (/usr/local/lib/node_modules/yarn/lib/cli.js:186:110)
-      at new ProcessTermError (/usr/local/lib/node_modules/yarn/lib/cli.js:226:113)
-      at ChildProcess.<anonymous> (/usr/local/lib/node_modules/yarn/lib/cli.js:30281:17)
-      at emitTwo (events.js:126:13)
-      at ChildProcess.emit (events.js:214:7)
-      at maybeClose (internal/child_process.js:925:16)
-      at Process.ChildProcess._handle.onexit (internal/child_process.js:209:5)
+  Error: No registered module found called "icey-deepcopy".
+      at new MessageError (/usr/local/lib/node_modules/yarn/lib/cli.js:186:110)
+      at Object.<anonymous> (/usr/local/lib/node_modules/yarn/lib/cli.js:87795:15)
+      at Generator.next (<anonymous>)
+      at step (/usr/local/lib/node_modules/yarn/lib/cli.js:98:30)
+      at /usr/local/lib/node_modules/yarn/lib/cli.js:109:13
+      at <anonymous>
