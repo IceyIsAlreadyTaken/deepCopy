@@ -1,0 +1,49 @@
+{
+  "name": "deepcopy",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "typescript": "^3.2.4"
+  },
+  "devDependencies": {
+    "@types/jest": "^23.3.12",
+    "jest": "^23.6.0",
+    "ts-jest": "^23.10.5"
+  },
+  "scripts": {
+    "test": "jest --coverage",
+    "compile-es3": "rimraf './lib/es3' && tsc -t 'ES3' -m 'commonjs' --outDir './lib/es3' -d --sourceMap ",
+    "compile-es5": "rimraf './lib/es5' && tsc -t 'ES5' -m 'commonjs' --outDir './lib/es5' -d --sourceMap ",
+    "compile-esm": "rimraf './lib/esm' && tsc -t 'ES6' -m 'esnext' --outDir './lib/esm' -d --sourceMap"
+  },
+  "jest": {
+    "transform": {
+      ".(ts|tsx)": "<rootDir>/node_modules/ts-jest/preprocessor.js"
+    },
+    "testRegex": "(/__tests__/.*|\\.(test|spec))\\.(ts|tsx|js)$",
+    "moduleFileExtensions": [
+      "ts",
+      "tsx",
+      "js"
+    ],
+    "coveragePathIgnorePatterns": [
+      "/node_modules/",
+      "/test/",
+      "/lib/"
+    ]
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/IceyIsAlreadyTaken/deepCopy.git"
+  },
+  "keywords": [
+    "deepcopy"
+  ],
+  "author": "Icey",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/IceyIsAlreadyTaken/deepCopy/issues"
+  },
+  "homepage": "https://github.com/IceyIsAlreadyTaken/deepCopy#readme"
+}
