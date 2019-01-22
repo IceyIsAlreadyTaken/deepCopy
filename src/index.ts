@@ -13,12 +13,14 @@ function deepCopy<T>(source: T): T {
 
     for (const item in source) {
         if (Object.prototype.hasOwnProperty.call(source, item)) {
-            let itemType = judgeType(source[item]);
-            if (itemType === 'array' || itemType === 'object') {
-                sourceCopy[item] = deepCopy(source[item]);
-            } else {
-                sourceCopy[item] = source[item];
-            }
+
+            sourceCopy[item] = deepCopy(source[item]);
+            // let itemType = judgeType(source[item]);
+            // if (itemType === 'array' || itemType === 'object') {
+            //     sourceCopy[item] = deepCopy(source[item]);
+            // } else {
+            //     sourceCopy[item] = source[item];
+            // }
         }
 
     }
